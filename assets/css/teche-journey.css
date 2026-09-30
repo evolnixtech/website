@@ -1,0 +1,381 @@
+#teche-journey {
+    position: relative;
+    width: 100%;
+    min-height: 820px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(38, 104, 255, 0.22),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #020817 0%,
+            #07152d 50%,
+            #020817 100%
+        );
+
+    color: #ffffff;
+}
+
+
+/* -----------------------------------------
+   LEFT CONTENT
+----------------------------------------- */
+
+.journey-copy {
+    position: absolute;
+
+    left: 7%;
+    top: 19%;
+
+    width: 390px;
+
+    z-index: 20;
+}
+
+
+.phase-label {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(37, 99, 235, .15);
+    border: 1px solid rgba(37, 99, 235, .5);
+
+    color: #5da0ff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.journey-copy h1 {
+    margin: 25px 0 20px;
+
+    font-size: clamp(55px, 5vw, 82px);
+    line-height: .95;
+
+    font-weight: 800;
+}
+
+
+.journey-copy h1 span {
+    display: block;
+
+    color: #2f7bff;
+}
+
+
+.journey-copy p {
+    max-width: 350px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+.journey-button {
+    margin-top: 25px;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #286cff;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 35px rgba(40,108,255,.3);
+
+    transition: .3s ease;
+}
+
+
+.journey-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(40,108,255,.5);
+}
+
+
+.journey-button span {
+    margin-left: 10px;
+
+    font-size: 20px;
+}
+
+
+/* -----------------------------------------
+   THREE.JS AREA
+----------------------------------------- */
+
+.three-scene {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 67%;
+    height: 100%;
+}
+
+
+#teche-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* -----------------------------------------
+   THOUGHT BUBBLE
+----------------------------------------- */
+
+#thought-bubble {
+    position: absolute;
+
+    top: 12%;
+    left: 24%;
+
+    width: 180px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111827;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
+    transform: scale(0);
+
+    transition:
+        transform .6s cubic-bezier(.175,.885,.32,1.275);
+}
+
+
+#thought-bubble.show {
+    transform: scale(1);
+}
+
+
+#thought-bubble::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -12px;
+    left: 35px;
+
+    width: 28px;
+    height: 28px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+
+.thought-text {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+
+/* -----------------------------------------
+   PROGRESS
+----------------------------------------- */
+
+.journey-progress {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 115px;
+
+    padding: 18px 25px;
+
+    border-radius: 22px;
+
+    background: rgba(5,14,30,.82);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(15px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 30;
+}
+
+
+.journey-step {
+    min-width: 110px;
+
+    text-align: center;
+
+    color: rgba(255,255,255,.45);
+
+    transition: .4s ease;
+}
+
+
+.journey-step.active {
+    color: white;
+}
+
+
+.step-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    font-weight: 700;
+}
+
+
+.journey-step.active .step-icon {
+    background: #286cff;
+
+    border-color: #286cff;
+
+    box-shadow:
+        0 0 25px rgba(40,108,255,.7);
+}
+
+
+.journey-step span {
+    font-size: 10px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.journey-line {
+    height: 2px;
+
+    flex: 1;
+
+    max-width: 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #286cff,
+            rgba(255,255,255,.1)
+        );
+}
+
+
+/* -----------------------------------------
+   RESPONSIVE
+----------------------------------------- */
+
+@media (max-width: 1000px) {
+
+    #teche-journey {
+        min-height: 1000px;
+    }
+
+    .journey-copy {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: auto;
+
+        padding: 60px 30px 0;
+
+        text-align: center;
+    }
+
+    .journey-copy p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .three-scene {
+        top: 280px;
+
+        width: 100%;
+        height: 550px;
+    }
+
+    .journey-progress {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        gap: 20px;
+    }
+
+    .journey-line {
+        min-width: 35px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #teche-journey {
+        min-height: 950px;
+    }
+
+    .journey-copy h1 {
+        font-size: 48px;
+    }
+
+    .three-scene {
+        top: 300px;
+        height: 450px;
+    }
+
+    .journey-progress {
+        bottom: 15px;
+
+        left: 15px;
+        right: 15px;
+    }
+
+}
